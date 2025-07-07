@@ -10,7 +10,8 @@ date: 2024-01-12 00:01:00 +0800
     <p>
         here are some of my tutorials
         <li><a href="https://shryshdshmkh.github.io/gwr-analysis/gwr.html">Geographically Weighted Regression</a></li>
-    <li><a href="https://shryshdshmkh.github.io/gwr-analysis/quantile.html">Quantile Regression</a></li>
+       <li><a href="https://shryshdshmkh.github.io/gwr-analysis/quantile.html">Quantile Regression</a></li>
+        <li><a href="spatial.html">Spatial Models</a></li>
         Over the years, I have worked on <strong>diverse projects</strong>, ranging from <strong>COVID-19 prediction, MRI segmentation, large-scale surveys, deep learning applications</strong>, and <strong>statistical modeling</strong>. This space will serve as a <strong>repository of my research, experiments, and insights</strong>, where I will be compiling and sharing the materials I have used in my journey.
     </p>
 </div>
