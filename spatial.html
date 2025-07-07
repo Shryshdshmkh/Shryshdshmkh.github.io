@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Models in R with Mathematical Explanation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .math-equation {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 1.1rem;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .code-block {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .model-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-blue-600 text-white py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold mb-2"><i class="fas fa-map-marked-alt mr-3"></i>Spatial Models in R</h1>
+            <p class="text-xl">Mathematical foundations and practical implementation</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700"><i class="fas fa-info-circle mr-2"></i>Introduction to Spatial Models</h2>
+                <p class="mb-4">Spatial models are statistical models that incorporate spatial dependence between observations. They are essential when dealing with data that has a geographic component, as observations close to each other tend to be more similar than those farther apart.</p>
+                
+                <div class="math-equation">
+                    <p>The general form of a spatial model can be represented as:</p>
+                    <p class="text-center">Y(s) = μ(s) + ε(s)</p>
+                    <p>Where:</p>
+                    <ul class="list-disc pl-6">
+                        <li>Y(s) is the observed value at location s</li>
+                        <li>μ(s) is the mean or trend component (may depend on covariates)</li>
+                        <li>ε(s) is the spatially correlated error term</li>
+                    </ul>
+                </div>
+                
+                <p class="mb-4">In R, spatial modeling is primarily handled through packages like <span class="font-mono bg-gray-200 px-2 py-1 rounded">sp</span>, <span class="font-mono bg-gray-200 px-2 py-1 rounded">sf</span>, <span class="font-mono bg-gray-200 px-2 py-1 rounded">gstat</span>, and <span class="font-mono bg-gray-200 px-2 py-1 rounded">spdep</span>.</p>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-blue-700 border-b pb-2">Types of Spatial Models</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Spatial Autoregressive Models -->
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-blue-500 text-white p-4">
+                        <h3 class="text-xl font-semibold"><i class="fas fa-project-diagram mr-2"></i>Spatial Autoregressive Models</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-3">These models account for spatial dependence in the dependent variable. The most common are:</p>
+                        <ul class="list-disc pl-5 mb-4">
+                            <li>SAR (Spatial Autoregressive)</li>
+                            <li>SEM (Spatial Error Model)</li>
+                            <li>SDM (Spatial Durbin Model)</li>
+                        </ul>
+                        
+                        <div class="math-equation text-sm">
+                            <p>SAR model formulation:</p>
+                            <p class="text-center">Y = ρWY + Xβ + ε</p>
+                            <p>Where:</p>
+                            <ul class="list-disc pl-5">
+                                <li>W is the spatial weights matrix</li>
+                                <li>ρ is the spatial autoregressive coefficient</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="code-block mt-3">
+                            <p># Implementation in R using spdep</p>
+                            <p>library(spdep)</p>
+                            <p>sar_model <- lagsarlm(y ~ x1 + x2, data=df, listw=weights)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Geostatistical Models -->
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-green-500 text-white p-4">
+                        <h3 class="text-xl font-semibold"><i class="fas fa-chart-area mr-2"></i>Geostatistical Models</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-3">Used for continuous spatial data, modeling spatial covariance structure through variograms.</p>
+                        
+                        <div class="math-equation text-sm">
+                            <p>The semivariogram γ(h) is defined as:</p>
+                            <p class="text-center">γ(h) = ½ Var[Z(s+h) - Z(s)]</p>
+                            <p>Common models:</p>
+                            <ul class="list-disc pl-5">
+                                <li>Exponential: γ(h) = c₀ + c[1 - exp(-h/a)]</li>
+                                <li>Spherical</li>
+                                <li>Gaussian</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="code-block mt-3">
+                            <p># Implementation using gstat</p>
+                            <p>library(gstat)</p>
+                            <p>vgram <- variogram(z ~ 1, locations=~x+y, data=df)</p>
+                            <p>fit <- fit.variogram(vgram, model=vgm("Exp"))</p>
+                            <p>krige_pred <- krige(z ~ 1, locations=~x+y, data=df, newdata=grid, model=fit)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Point Process Models -->
+                <div class="model-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="bg-purple-500 text-white p-4">
+                        <h3 class="text-xl font-semibold"><i class="fas fa-dot-circle mr-2"></i>Point Process Models</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="mb-3">Model the distribution of points in space, often using Poisson processes.</p>
+                        
+                        <div class="math-equation text-sm">
+                            <p>Inhomogeneous Poisson process with intensity λ(s):</p>
+                            <p class="text-center">P[N(B) = n] = [∫<sub>B</sub>λ(s)ds]<sup>n</sup>exp(-∫<sub>B</sub>λ(s)ds)/n!</p>
+                            <p>Where:</p>
+                            <ul class="list-disc pl-5">
+                                <li>N(B) is the number of points in region B</li>
+                                <li>λ(s) is the intensity function</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="code-block mt-3">
+                            <p># Implementation using spatstat</p>
+                            <p>library(spatstat)</p>
+                            <p>ppp_obj <- ppp(x, y, window=owin)</p>
+                            <p>fit <- ppm(ppp_obj, ~x+y)</p>
+                            <p>predict(fit, type="trend")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700"><i class="fas fa-calculator mr-2"></i>Mathematical Foundations</h2>
+                
+                <h3 class="text-xl font-medium mt-4 mb-2 text-green-700">Spatial Weights Matrix</h3>
+                <p>The spatial weights matrix W is fundamental to spatial modeling. It quantifies the spatial relationships between observations.</p>
+                
+                <div class="math-equation">
+                    <p>Common specifications:</p>
+                    <ol class="list-decimal pl-6">
+                        <li>Contiguity-based: w<sub>ij</sub> = 1 if regions i and j share a boundary, 0 otherwise</li>
+                        <li>Distance-based: w<sub>ij</sub> = f(d<sub>ij</sub>) where d<sub>ij</sub> is distance between i and j</li>
+                        <li>k-nearest neighbors</li>
+                    </ol>
+                </div>
+                
+                <div class="code-block">
+                    <p># Creating spatial weights in R</p>
+                    <p>library(spdep)</p>
+                    <p>coords <- cbind(df$x, df$y)</p>
+                    <p>nb <- knn2nb(knearneigh(coords, k=5))</p>
+                    <p>weights <- nb2listw(nb, style="W") # Row-standardized</p>
+                </div>
+                
+                <h3 class="text-xl font-medium mt-6 mb-2 text-green-700">Spatial Autocorrelation</h3>
+                <p>Spatial autocorrelation measures the degree of dependency among observations in space.</p>
+                
+                <div class="math-equation">
+                    <p>Moran's I statistic:</p>
+                    <p class="text-center">I = (n/S₀) × (Σ<sub>i</sub>Σ<sub>j</sub>w<sub>ij</sub>(y<sub>i</sub>-ȳ)(y<sub>j</sub>-ȳ)) / Σ<sub>i</sub>(y<sub>i</sub>-ȳ)²</p>
+                    <p>Where:</p>
+                    <ul class="list-disc pl-6">
+                        <li>n is the number of spatial units</li>
+                        <li>S₀ = Σ<sub>i</sub>Σ<sub>j</sub>w<sub>ij</sub> (sum of all weights)</li>
+                        <li>w<sub>ij</sub> are the spatial weights</li>
+                    </ul>
+                </div>
+                
+                <div class="code-block">
+                    <p># Testing for spatial autocorrelation</p>
+                    <p>moran.test(df$y, listw=weights)</p>
+                    <p>geary.test(df$y, listw=weights)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700"><i class="fas fa-laptop-code mr-2"></i>Practical Implementation in R</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-green-700">1. Data Preparation</h3>
+                        <div class="code-block">
+                            <p># Load necessary packages</p>
+                            <p>library(sf)       # For spatial data</p>
+                            <p>library(spdep)    # Spatial dependence</p>
+                            <p>library(gstat)    # Geostatistics</p>
+                            <p>library(tmap)     # Thematic maps</p>
+                            <p></p>
+                            <p># Read spatial data (e.g., shapefile)</p>
+                            <p>spatial_data <- st_read("path/to/shapefile.shp")</p>
+                            <p></p>
+                            <p># Convert to spatial object if needed</p>
+                            <p>sp_obj <- as(spatial_data, "Spatial")</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-medium mb-3 text-green-700">2. Model Selection Workflow</h3>
+                        <ol class="list-decimal pl-6 space-y-2">
+                            <li>Test for spatial autocorrelation (Moran's I, Geary's C)</li>
+                            <li>Examine spatial patterns (variogram for geostatistical data)</li>
+                            <li>Choose appropriate model based on data characteristics</li>
+                            <li>Estimate model parameters</li>
+                            <li>Validate model (cross-validation, residuals analysis)</li>
+                            <li>Make predictions if needed</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-medium mt-6 mb-3 text-green-700">Complete Example: Spatial Regression</h3>
+                <div class="code-block">
+                    <p># Example: Spatial lag model</p>
+                    <p># Create neighbor list</p>
+                    <p>coords <- coordinates(sp_obj)</p>
+                    <p>nb <- knn2nb(knearneigh(coords, k=5))</p>
+                    <p>weights <- nb2listw(nb, style="W")</p>
+                    <p></p>
+                    <p># Fit spatial lag model</p>
+                    <p>model <- lagsarlm(y ~ x1 + x2, data=sp_obj, listw=weights)</p>
+                    <p>summary(model)</p>
+                    <p></p>
+                    <p># Check residuals for remaining spatial autocorrelation</p>
+                    <p>moran.test(residuals(model), listw=weights)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-blue-700"><i class="fas fa-lightbulb mr-2"></i>Key Considerations</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-medium mb-2 text-purple-700">Model Selection</h3>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>SAR when dependent variable shows spatial dependence</li>
+                            <li>SEM when residuals show spatial dependence</li>
+                            <li>SDM when both dependent and independent variables show spatial patterns</li>
+                            <li>Geostatistical models for continuous spatial processes</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-medium mb-2 text-purple-700">Common Challenges</h3>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li>Modifiable areal unit problem (MAUP)</li>
+                            <li>Edge effects in spatial analysis</li>
+                            <li>Computational intensity with large datasets</li>
+                            <li>Specification of spatial weights matrix</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-exclamation-triangle text-yellow-400 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-yellow-800">Important Note</h3>
+                            <div class="mt-2 text-sm text-yellow-700">
+                                <p>Always visualize your spatial data before modeling. Spatial patterns that are obvious visually may not always be captured by statistical tests, and vice versa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-semibold">Spatial Models in R</h3>
+                    <p class="text-gray-400">Mathematical foundations and practical implementation</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-r-project text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-book text-2xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fas fa-graduation-cap text-2xl"></i></a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>© 2023 Spatial Modeling Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
