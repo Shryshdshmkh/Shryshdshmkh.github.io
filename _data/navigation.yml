@@ -9,3 +9,5 @@ pages:
   url: /showcase
 - name: Projects
   url: /projects
+- name: CV
+  url: /Resume
