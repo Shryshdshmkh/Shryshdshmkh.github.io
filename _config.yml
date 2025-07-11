@@ -11,6 +11,8 @@ minima:
 collections:
   publications:
     output: true
+  Resume:
+    output: true
   showcase:
     output: true
   projects:
