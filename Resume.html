@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyash Deshmukh - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #3b82f6;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3b82f6;
+        }
+        
+        .timeline-item:after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            width: 1px;
+            height: calc(100% - 15px);
+            background-color: #ddd;
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 3px 10px;
+            border-radius: 15px;
+            margin: 3px;
+            font-size: 0.85rem;
+        }
+        
+        .publication-card {
+            border-left: 3px solid #3b82f6;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        @media print {
+            body {
+                font-size: 12pt;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-mt-4 {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-4xl mx-auto p-6 md:p-8 bg-white shadow-lg my-8 print:shadow-none print:my-0">
+        <!-- Header -->
+        <header class="mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end">
+                <div>
+                    <h1 class="text-4xl font-bold text-gray-800 mb-1">Shreyash Deshmukh</h1>
+                    <p class="text-lg text-gray-600">Doctoral Fellow in Quantitative Methods and Operations Management</p>
+                </div>
+                <div class="mt-4 md:mt-0 print-mt-4">
+                    <ul class="space-y-1">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-blue-500 mr-2 w-5"></i>
+                            <a href="mailto:shrdjhu@gmail.com" class="text-gray-700 hover:text-blue-600">shrdjhu@gmail.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-globe text-blue-500 mr-2 w-5"></i>
+                            <a href="https://shryshdshmkh.github.io/" target="_blank" class="text-gray-700 hover:text-blue-600">shrd.github.io</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-linkedin text-blue-500 mr-2 w-5"></i>
+                            <a href="https://www.linkedin.com/in/shreyas-deshmukh-268720184" target="_blank" class="text-gray-700 hover:text-blue-600">LinkedIn Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Education -->
+            <section class="mb-10">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Education</h2>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-gray-800">Indian Institute of Management, Kozhikode</h3>
+                    <div class="flex flex-col sm:flex-row sm:justify-between text-gray-600 mb-2">
+                        <span>Doctoral Fellow, Quantitative Methods and Operations Management</span>
+                        <span class="text-blue-600">May 2024 - Pursuing</span>
+                    </div>
+                    <p class="text-gray-500">Kozhikode, India</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-gray-800">Indian Institute of Management, Bangalore</h3>
+                    <div class="flex flex-col sm:flex-row sm:justify-between text-gray-600 mb-2">
+                        <span>Predoctoral Fellow, Decision Science</span>
+                        <span class="text-blue-600">May 2023 - May 2024</span>
+                    </div>
+                    <p class="text-gray-500">Bangalore, India</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-gray-800">International Institute for Population Sciences, Mumbai</h3>
+                    <div class="flex flex-col sm:flex-row sm:justify-between text-gray-600 mb-2">
+                        <span>Master of Population Studies</span>
+                        <span class="text-blue-600">July 2022 - June 2023</span>
+                    </div>
+                    <p class="text-gray-500">Mumbai, India</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-gray-800">Sardar Patel University, Gujarat</h3>
+                    <div class="flex flex-col sm:flex-row sm:justify-between text-gray-600 mb-2">
+                        <span>MSc (Bio-Statistics)</span>
+                        <span class="text-blue-600">2018 - 2020</span>
+                    </div>
+                    <p class="text-gray-500">Gujarat, India</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-gray-800">Savitribai Phule Pune University, Maharashtra</h3>
+                    <div class="flex flex-col sm:flex-row sm:justify-between text-gray-600 mb-2">
+                        <span>BSc (Statistics)</span>
+                        <span class="text-blue-600">2015 - 2018</span>
+                    </div>
+                    <p class="text-gray-500">Maharashtra, India</p>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section class="mb-10">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Publications</h2>
+                
+                <div class="publication-card">
+                    <p class="text-gray-800">
+                        <span class="font-semibold">Deshmukh, S.</span>, & Deb, S. (2025). 
+                        <a href="https://link.springer.com/article/10.1007/s42081-025-00297-y" target="_blank" class="text-blue-600 hover:underline">
+                            A Survey of Statistical and Machine Learning Methods for Quantile Regression in Time Series and Their Suitability for Predicting Dengue Outbreaks.
+                        </a>
+                        <span class="text-gray-600">Published at the Japanese Journal of Statistics and Data Science.</span>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Work Experience -->
+            <section class="mb-10">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Work Experience</h2>
+                
+                <div class="timeline-item">
+                    <div class="flex flex-col sm:flex-row sm:justify-between">
+                        <h3 class="text-xl font-semibold text-gray-800">Statistician and Jr Data Manager</h3>
+                        <span class="text-blue-600">08/2020 - 07/2022</span>
+                    </div>
+                    <h4 class="text-lg text-gray-700 mb-2">Johns Hopkins India Private Limited, Pune</h4>
+                    <div class="text-gray-700 space-y-2">
+                        <p>As part of this role, I developed clinical risk prediction methods using longitudinal and survival data, contributing to more robust analytical approaches in clinical research.</p>
+                        <p>I actively assisted in the development of the statistical analysis plan for the <a href="https://reporter.nih.gov/search/OdAt9BXmnE6stZWrwNJmsA/project-details/10658901" target="_blank" class="text-blue-600 hover:underline">HATHI</a> study, working in close collaboration with the Principal Investigator (PI) and study coordinator.</p>
+                        <p>This collaboration also involved designing and finalizing paper-based Case Report Forms (CRFs) to ensure alignment with the study's data collection objectives.</p>
+                        <p>Additionally, I supervised and trained clinicians, counselors, and field staff on data entry protocols, including the use of REDCap for electronic data capture and integration with Electronic Health Records (EHRs), while standardizing procedures through well-defined Standard Operating Procedures (SOPs).</p>
+                        <p>To uphold data integrity, I conducted comprehensive quality assurance and quality control (QA/QC) processes to identify and rectify discrepancies in CRF and electronic data, ensuring the delivery of high-quality, reliable datasets for analysis.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Work -->
+            <section class="mb-10">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Research Work</h2>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-gray-800">Meta-Analysis of Survival Rate of AIDS Disease (MSc Project)</h3>
+                    <div class="text-gray-700 space-y-2">
+                        <p>Conducted a meta-analysis to estimate survival rates from HIV diagnosis to AIDS onset and from AIDS onset to death.</p>
+                        
+                        <h4 class="font-semibold text-gray-800 mt-3">Key Contributions:</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Reviewed <span class="font-semibold">20 cohort studies</span> with <span class="font-semibold">25000 participants</span> from <span class="font-semibold">PubMed, Web of Science, and Scopus</span> databases.</li>
+                            <li>Analyzed <span class="font-semibold">survival probabilities</span> for HIV-to-AIDS progression and AIDS-related mortality with and without <span class="font-semibold">HAART (Highly Active Antiretroviral Therapy)</span>.</li>
+                            <li>Applied <span class="font-semibold">random-effects models</span> to estimate survival rates with <span class="font-semibold">95% confidence intervals</span>.</li>
+                            <li>Identified significant <span class="font-semibold">heterogeneity</span> and evaluated studies for <span class="font-semibold">risk of bias</span>.</li>
+                            <li>Concluded that <span class="font-semibold">HAART significantly improves survival</span>, with most untreated patients dying within <span class="font-semibold">two years of AIDS onset</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-gray-800">Dynamic Interactions Between Air Pollutants and Air Quality Index: A VAR Model Approach</h3>
+                    <div class="text-gray-700 space-y-2">
+                        <p>This study is exploratory study, which examines the dynamic relationships between air pollutants (PM<sub>2.5</sub>, PM<sub>10</sub>, O<sub>3</sub>, NO<sub>2</sub>, SO<sub>2</sub>, CO) and Air Quality Index (AQI) using a Vector Autoregressive (VAR) model.</p>
+                        <p>The Augmented Dickey-Fuller (ADF) test confirms stationarity, and optimal lag selection criteria (AIC, BIC, HQIC) suggest a lag length of 3 or 4.</p>
+                        <p>Granger causality tests indicate that PM<sub>2.5</sub>, PM<sub>10</sub>, NO<sub>2</sub>, and CO significantly influence AQI, while impulse response analysis shows that shocks in PM<sub>10</sub> and CO have persistent effects on AQI.</p>
+                        <p>These findings highlight the need for targeted policy interventions to control key pollutants, particularly vehicular emissions and industrial pollution.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards & Certifications -->
+            <section class="mb-10">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Awards & Certifications</h2>
+                
+                <div class="space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:justify-between">
+                        <span class="font-semibold text-gray-800">UGC-NET Junior Research Fellowship (Demography)</span>
+                        <span class="text-blue-600">2023</span>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row sm:justify-between">
+                        <span class="font-semibold text-gray-800">Maharashtra State Eligibility Test (MH-SET) in Statistics</span>
+                        <span class="text-blue-600">2023</span>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row sm:justify-between">
+                        <span class="font-semibold text-gray-800">First Prize for Paper Presentation</span>
+                        <span class="text-blue-600">2020</span>
+                    </div>
+                    <p class="text-gray-600">National Conference on Recent Advances in Statistics, Sardar Patel University</p>
+                </div>
+            </section>
+
+            <!-- Communication Skills -->
+            <section class="mb-10">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Communication Skills</h2>
+                
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>
+                        <span class="font-semibold">Oral Presentation:</span> Delivered a talk on "Recent Advances in Statistics and Statistical Practice" at a seminar in 2019.
+                    </li>
+                    <li>
+                        <span class="font-semibold">Poster Presentation:</span> Presented a research poster at the Annual Conference of Respiratory and Critical Care (ACINUS) in 2022.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Technical Skills -->
+            <section class="mb-10">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Technical Skills</h2>
+                
+                <div class="flex flex-wrap">
+                    <span class="skill-tag">R</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">STATA</span>
+                    <span class="skill-tag">SPSS</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">C#</span>
+                    <span class="skill-tag">LaTeX</span>
+                </div>
+            </section>
+        </main>
+
+        <!-- Print Button -->
+        <div class="no-print mt-8 text-center">
+            <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                <i class="fas fa-print mr-2"></i>Print Resume
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Simple JavaScript to enhance the resume
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add animation to sections when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fadeIn');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+                section.classList.add('transition-opacity', 'duration-500', 'opacity-0');
+            });
+
+            // Add animation class when section is in view
+            const animateFadeIn = [
+                '@keyframes fadeIn',
+                '{',
+                '  from { opacity: 0; transform: translateY(20px); }',
+                '  to { opacity: 1; transform: translateY(0); }',
+                '}',
+                '.animate-fadeIn {',
+                '  animation: fadeIn 0.6s ease-out forwards;',
+                '  opacity: 1 !important;',
+                '}'
+            ].join('');
+
+            const styleElement = document.createElement('style');
+            styleElement.innerHTML = animateFadeIn;
+            document.head.appendChild(styleElement);
+        });
+    </script>
+</body>
+</html>
