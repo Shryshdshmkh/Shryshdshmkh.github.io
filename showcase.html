@@ -4,8 +4,211 @@ title : Showcase
 navbar_title: Showcase
 ---
 
-{% assign cards_by_group = site.showcase | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group" %}
+<!-- Twitter Feeds Section -->
+<section class="twitter-feeds-section mb-5">
+    <h1>Latest Updates</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <!-- Tweet 1 -->
+                <div class="twitter-embed-container" style="max-width: 550px;">
+                    <blockquote class="twitter-tweet" data-theme="light" data-width="550">
+                        <p lang="en" dir="ltr">
+                            <a href="https://x.com/xegression/status/1945485007222714765">
+                                View this tweet on X
+                            </a>
+                        </p>
+                        &mdash; @xegression
+                    </blockquote>
+                </div>
+                
+                <!-- Tweet 2 -->
+                <div class="twitter-embed-container" style="max-width: 550px;">
+                    <blockquote class="twitter-tweet" data-theme="light" data-width="550">
+                        <p lang="en" dir="ltr">
+                            <a href="https://x.com/xegression/status/1945406098451669423">
+                                View this tweet on X
+                            </a>
+                        </p>
+                        &mdash; @xegression
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Twitter Widget JavaScript -->
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<!-- Custom CSS for Twitter embeds -->
+<style>
+.twitter-feeds-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.twitter-feeds-section h1 {
+    text-align: center;
+    color: #1da1f2;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.twitter-embed-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.twitter-tweet {
+    margin: 0 auto !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .twitter-feeds-section {
+        padding: 1rem 0.5rem;
+    }
+    
+    .twitter-embed-container {
+        max-width: 100%;
+        min-width: 280px;
+    }
+}
+
+/* Loading placeholder styles */
+.twitter-embed-container::before {
+    content: "Loading tweet...";
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    color: #657786;
+    font-style: italic;
+    background: #f7f9fa;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.twitter-embed-container .twitter-tweet {
+    display: none;
+}
+
+.twitter-embed-container .twitter-tweet.twitter-tweet-rendered {
+    display: block;
+}
+
+.twitter-embed-container .twitter-tweet.twitter-tweet-rendered ~ ::before {
+    display: none;
+}
+</style>
+
+<!-- Alternative manual embed approach if Twitter widgets don't load -->
+<script>
+// Fallback function to create manual tweet cards if Twitter widgets fail
+function createManualTweetCards() {
+    const tweets = [
+        {
+            url: "https://x.com/xegression/status/1945485007222714765",
+            id: "1945485007222714765",
+            username: "xegression"
+        },
+        {
+            url: "https://x.com/xegression/status/1945406098451669423", 
+            id: "1945406098451669423",
+            username: "xegression"
+        }
+    ];
+    
+    // Check if Twitter widgets loaded after 3 seconds
+    setTimeout(() => {
+        const tweetContainers = document.querySelectorAll('.twitter-embed-container');
+        tweetContainers.forEach((container, index) => {
+            const tweetFrame = container.querySelector('.twitter-tweet-rendered');
+            if (!tweetFrame) {
+                // Create manual tweet card
+                const tweetData = tweets[index];
+                container.innerHTML = `
+                    <div class="manual-tweet-card">
+                        <div class="tweet-header">
+                            <strong>@${tweetData.username}</strong>
+                            <span class="tweet-time">• Recent</span>
+                        </div>
+                        <div class="tweet-content">
+                            <p>Tweet content not available - <a href="${tweetData.url}" target="_blank" rel="noopener">View on X</a></p>
+                        </div>
+                        <div class="tweet-actions">
+                            <a href="${tweetData.url}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                                View Tweet
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    }, 3000);
+}
+
+// Initialize fallback
+document.addEventListener('DOMContentLoaded', createManualTweetCards);
+</script>
+
+<style>
+.manual-tweet-card {
+    background: white;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    padding: 1rem;
+    max-width: 550px;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.tweet-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    color: #536471;
+}
+
+.tweet-header strong {
+    color: #0f1419;
+    margin-right: 0.5rem;
+}
+
+.tweet-time {
+    color: #536471;
+    font-size: 0.9rem;
+}
+
+.tweet-content {
+    margin-bottom: 1rem;
+    color: #0f1419;
+    line-height: 1.5;
+}
+
+.tweet-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.tweet-actions a {
+    text-decoration: none;
+    color: #1da1f2;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.tweet-actions a:hover {
+    color: #1a91da;
+}
+</style>
+
+{% assign cards_by_group = site.showcase | sort: "date" | reverse | where: "show", true | group_by_exp: "item", "item.group" %}
 {% for group in cards_by_group %}
 <h1>{{ group.name }}</h1>
 <div class="row grid mb-4">
@@ -29,17 +232,3 @@ navbar_title: Showcase
     {% endfor %}
 </div>
 {% endfor %}
-
-<!-- Added Twitter Feed Section -->
-<h1>Latest Tweets</h1>
-<div class="row mb-4">
-    <div class="col-md-6 p-2">
-        <blockquote class="twitter-tweet"><p lang="qme" dir="ltr"><a href="https://t.co/00DRCJF4y5">https://t.co/00DRCJF4y5</a></p>— xegression (@xegression) <a href="https://x.com/xegression/status/1945485007222714765?ref_src=twsrc%5Etfw">April 10, 2025</a></blockquote>
-    </div>
-    <div class="col-md-6 p-2">
-        <blockquote class="twitter-tweet"><p lang="zxx" dir="ltr"><a href="https://t.co/n2EWi3d4y2">https://t.co/n2EWi3d4y2</a></p>— xegression (@xegression) <a href="https://x.com/xegression/status/1945406098451669423?ref_src=twsrc%5Etfw">April 10, 2025</a></blockquote>
-    </div>
-</div>
-
-<!-- This script is essential and must be included. It finds the blockquotes above and turns them into tweets. -->
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
