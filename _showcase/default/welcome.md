@@ -17,7 +17,9 @@ date: 2024-01-12 00:01:00 +0800
         <li><a href="spatialmatrix.html"> Spatial Matrix </a></li>
         <li><a href="mcf.html"> Minimal Cash flow </a></li>
         <li><a href="Shortest_path.html"> Shortest Path Problem</a></li>
-        <li><a href="maximum_flow.html.html"> Maximum Flow Problem</a></li>
+        <li><a href="maximum_flow.html"> Maximum Flow Problem</a></li>
+        <li><a href="Assignment_problem.html"> Assignment Problem</a></li>
+        
         
          
 Over the years, I have worked on <strong>diverse projects</strong>, ranging from <strong>COVID-19 prediction, MRI segmentation, large-scale surveys, deep learning applications</strong>, and <strong>statistical modeling</strong>. This space will serve as a <strong>repository of my research, experiments, and insights</strong>, where I will be compiling and sharing the materials I have used in my journey.
