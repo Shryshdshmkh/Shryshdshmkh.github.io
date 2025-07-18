@@ -1,403 +1,561 @@
-    body {
-        font-family: 'Georgia', serif;
-        line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
-        min-height: 100vh;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .blog-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        margin: 20px 0;
-        transition: transform 0.3s ease;
-    }
-
-    .blog-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .header {
-        background: linear-gradient(135deg, #6c5ce7 0%, #8e44ad 100%);
-        color: white;
-        padding: 50px 40px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .header::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        animation: flow 8s linear infinite;
-    }
-
-    @keyframes flow {
-        0% { transform: translateX(-100%) rotate(0deg); }
-        100% { transform: translateX(100%) rotate(360deg); }
-    }
-
-    .header h1 {
-        font-size: 3em;
-        margin-bottom: 15px;
-        position: relative;
-        z-index: 1;
-    }
-
-    .header p {
-        font-size: 1.3em;
-        opacity: 0.9;
-        position: relative;
-        z-index: 1;
-    }
-
-    .content {
-        padding: 40px;
-    }
-
-    .section {
-        margin-bottom: 45px;
-    }
-
-    .section h2 {
-        color: #6c5ce7;
-        font-size: 2.3em;
-        margin-bottom: 25px;
-        border-bottom: 3px solid #a29bfe;
-        padding-bottom: 10px;
-        position: relative;
-    }
-
-    .section h3 {
-        color: #8e44ad;
-        font-size: 1.7em;
-        margin: 30px 0 15px 0;
-    }
-
-    .section p {
-        margin-bottom: 15px;
-        text-align: justify;
-        font-size: 1.1em;
-    }
-
-    .math-formula {
-        background: linear-gradient(135deg, #f1f2f6 0%, #dfe6e9 100%);
-        border: 2px solid #a29bfe;
-        border-radius: 15px;
-        padding: 30px;
-        margin: 30px 0;
-        font-family: 'Courier New', monospace;
-        font-size: 1.2em;
-        text-align: center;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .example-box {
-        background: linear-gradient(135deg, #00cec9 0%, #55efc4 100%);
-        color: #2d3436;
-        padding: 35px;
-        border-radius: 15px;
-        margin: 30px 0;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    }
-
-    .example-box h4 {
-        font-size: 1.5em;
-        margin-bottom: 20px;
-        color: #004d40;
-    }
-
-    .network-diagram {
-        background: white;
-        border: 3px solid #6c5ce7;
-        border-radius: 20px;
-        padding: 40px;
-        margin: 30px 0;
-        text-align: center;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    }
-    
-    .bipartite-graph {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        position: relative;
-        height: 200px;
-    }
-    
-    .bipartite-graph .node-set {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        z-index: 2;
-    }
-
-    .node {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        color: white;
-        font-weight: bold;
-        font-size: 1.3em;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
-    }
-    
-    .node:hover {
-        transform: scale(1.1);
-    }
-    
-    .node-set1 { background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%); }
-    .node-set2 { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
-    
-    .bipartite-graph svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-    }
-    
-    .bipartite-graph svg line {
-        stroke: #a29bfe;
-        stroke-width: 2;
-        stroke-dasharray: 5,5;
-    }
-    
-    .cost-matrix {
-        width: 80%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        text-align: center;
-    }
-    
-    .cost-matrix th, .cost-matrix td {
-        border: 2px solid #004d40;
-        padding: 12px;
-    }
-
-    .cost-matrix th {
-        background-color: #00796b;
-        color: white;
-    }
-    
-    .optimal { background-color: #a7ffeb !important; font-weight: bold; }
-
-    .algorithm-box {
-        background: linear-gradient(135deg, #e84393 0%, #d63031 100%);
-        color: white;
-        padding: 30px;
-        border-radius: 15px;
-        margin: 25px 0;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .algorithm-box h4 {
-        font-size: 1.4em;
-        margin-bottom: 15px;
-        color: #fff;
-    }
-
-    .applications {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin: 30px 0;
-    }
-
-    .app-card {
-        background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
-        color: white;
-        padding: 30px;
-        border-radius: 15px;
-        text-align: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .app-card:hover {
-        transform: translateY(-8px) scale(1.03);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    .app-card h4 {
-        font-size: 1.4em;
-        margin-bottom: 15px;
-        color: #fff;
-    }
-    
-    .highlight {
-        background: linear-gradient(120deg, #6c5ce7 0%, #a29bfe 100%);
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-weight: bold;
-        color: white;
-    }
-
-    @media (max-width: 768px) {
-        .header h1 { font-size: 2.5em; }
-        .section h2 { font-size: 2em; }
-        .content { padding: 25px; }
-        .bipartite-graph { height: auto; flex-direction: column; gap: 40px; }
-        .bipartite-graph svg { display: none; }
-    }
-</style>
-
-
-        <div class="content">
-            <div class="section">
-                <h2>The Quest for Optimal Pairing</h2>
-                <p>In a world driven by efficiency, matching the right resources to the right tasks is a universal challenge. How do you assign employees to projects to maximize productivity? Or pair delivery drivers to routes to minimize fuel costs? These scenarios are all instances of a classic optimization puzzle: the <span class="highlight">Assignment Problem</span>.</p>
-                
-                <p>The problem is beautifully simple in its goal: given two equally sized groups of items, we want to create one-to-one pairings between them in a way that minimizes the total cost of all pairings. It's about finding the "perfect match" not just for one pair, but for the entire system simultaneously.</p>
-            </div>
-
-            <div class="section">
-                <h2>Anatomy of the Assignment Problem</h2>
-                <p>At its core, the assignment problem involves three key components:</p>
-                <div class="network-diagram">
-                    <h4>Bipartite Matching with Costs</h4>
-                    <div class="bipartite-graph">
-                        <svg>
-                            <!-- Lines representing potential assignments -->
-                            <line x1="15%" y1="20%" x2="85%" y2="20%" />
-                            <line x1="15%" y1="20%" x2="85%" y2="50%" />
-                            <line x1="15%" y1="50%" x2="85%" y2="20%" />
-                            <line x1="15%" y1="50%" x2="85%" y2="80%" />
-                            <line x1="15%" y1="80%" x2="85%" y2="50%" />
-                            <line x1="15%" y1="80%" x2="85%" y2="80%" />
-                        </svg>
-                        <div class="node-set">
-                            <div class="node node-set1">A</div>
-                            <div class="node node-set1">B</div>
-                            <div class="node node-set1">C</div>
-                        </div>
-                        <div class="node-set">
-                            <div class="node node-set2">X</div>
-                            <div class="node node-set2">Y</div>
-                            <div class="node node-set2">Z</div>
-                        </div>
-                    </div>
-                     <p style="margin-top: 20px; color: #666;">Matching each item from Set 1 (e.g., Workers) to exactly one item in Set 2 (e.g., Jobs).</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Assignment Problem: Finding Perfect Matches</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-glow {
+            box-shadow: 0 10px 30px -5px rgba(102, 126, 234, 0.3);
+        }
+        
+        .node-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #667eea 0%, #9f7aea 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+        
+        .section-divider {
+            border-bottom: 3px solid #9f7aea;
+            width: 80px;
+            margin: 1.5rem auto;
+        }
+        
+        .bounce-hover:hover {
+            animation: bounce 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold font-playfair mb-6">
+                The Assignment Problem
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+                Finding Perfect Matches in Optimization
+            </p>
+            <div class="mt-10">
+                <div class="inline-flex items-center space-x-2 animate-bounce">
+                    <i class="fas fa-arrow-down text-xl"></i>
                 </div>
-
-                <ol>
-                    <li><strong>Two Equal Sets (N₁ and N₂):</strong> These are the groups of items to be matched. For example, a set of swimmers and a set of swimming events.</li>
-                    <li><strong>Possible Assignments (A):</strong> A collection of all valid pairs between the two sets. For instance, not every swimmer can compete in every event.</li>
-                    <li><strong>Assignment Costs (cᵢⱼ):</strong> A cost associated with each possible assignment. This could be the time it takes a machine to complete a job, or the preference score a medical student has for a particular hospital internship.</li>
-                </ol>
-            </div>
-            
-            <div class="section">
-                <h2>Connection to Minimum Cost Flow</h2>
-                <p>One of the most elegant aspects of the assignment problem is that it's a special, highly structured case of the <span class="highlight">Minimum Cost Flow</span> problem. This connection allows us to use powerful network flow algorithms to find the solution. The transformation is straightforward:</p>
-                
-                <div class="math-formula">
-                    <strong>1. Define the Network:</strong><br>
-                    Construct a network G = (N₁ ∪ N₂, A) where N₁ are source nodes and N₂ are destination nodes.
-                </div>
-                
-                <div class="math-formula">
-                    <strong>2. Set Supplies and Demands:</strong><br>
-                    • For each source node i ∈ N₁, set supply b(i) = 1.<br>
-                    • For each destination node j ∈ N₂, set demand b(j) = -1.
-                </div>
-                
-                <div class="math-formula">
-                    <strong>3. Set Arc Capacities:</strong><br>
-                    • For every possible assignment arc (i, j) ∈ A, set capacity uᵢⱼ = 1.
-                </div>
-                
-                <p>This setup perfectly models the problem. Each source node (e.g., a worker) has exactly one unit of "supply" to give. Each destination node (e.g., a job) has a "demand" for exactly one unit. The capacity of 1 on each arc ensures that a worker can only be assigned to one job. Solving for the minimum cost flow in this network yields the minimum cost assignment.</p>
-            </div>
-
-            <div class="section">
-                <h2>Real-World Example: Assigning Consultants to Projects</h2>
-                <div class="example-box">
-                    <h4>Scenario: Optimizing a Consulting Team</h4>
-                    <p>A manager has three consultants (Ana, Ben, Chloe) and three projects (Phoenix, Quest, Titan). The table below shows the estimated cost (in hours) for each consultant to complete each project based on their skills.</p>
-
-                    <table class="cost-matrix">
-                        <thead>
-                            <tr><th></th><th>Project Phoenix</th><th>Project Quest</th><th>Project Titan</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><th>Ana</th><td>10</td><td>15</td><td>9</td></tr>
-                            <tr><th>Ben</th><td>9</td><td>18</td><td>5</td></tr>
-                            <tr><th>Chloe</th><td>6</td><td>14</td><td>3</td></tr>
-                        </tbody>
-                    </table>
-                    
-                    <p><strong>The Goal:</strong> Assign each consultant to exactly one project to minimize the total hours worked.</p>
-                    
-                    <h4>Optimal Solution:</h4>
-                    <p>After solving the assignment problem (e.g., using the Hungarian algorithm), we find the perfect match:</p>
-                    
-                    <table class="cost-matrix">
-                        <thead>
-                            <tr><th></th><th>Project Phoenix</th><th>Project Quest</th><th>Project Titan</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><th>Ana</th><td class="optimal">10</td><td>15</td><td>9</td></tr>
-                            <tr><th>Ben</th><td>9</td><td>18</td><td class="optimal">5</td></tr>
-                            <tr><th>Chloe</th><td>6</td><td class="optimal">14</td><td>3</td></tr>
-                        </tbody>
-                    </table>
-                    
-                    <p>The optimal assignment is:</p>
-                    <ul>
-                        <li><strong>Ana → Project Phoenix (10 hours)</strong></li>
-                        <li><strong>Ben → Project Titan (5 hours)</strong></li>
-                        <li><strong>Chloe → Project Quest (14 hours)</strong></li>
-                    </ul>
-                    <p><strong>Total Minimum Cost:</strong> 10 + 5 + 14 = <strong>29 hours</strong>. Any other combination would result in a higher total cost.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Solving the Puzzle: The Hungarian Algorithm</h2>
-                <div class="algorithm-box">
-                    <h4>The Hungarian Algorithm</h4>
-                    <p>While the assignment problem can be solved as a minimum cost flow problem, its unique structure allows for a much more efficient, specialized algorithm known as the <strong>Hungarian Method</strong>.</p>
-                    <p>Developed by Harold Kuhn in 1955, this algorithm works by manipulating the cost matrix through a series of row and column reductions to find an assignment with zero cost in the modified matrix, which corresponds to the optimal assignment in the original matrix. It is significantly faster for this specific problem than general-purpose linear programming solvers.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Widespread Applications</h2>
-                <p>The assignment problem appears in countless real-world scenarios:</p>
-                <div class="applications">
-                    <div class="app-card"><h4>👥 Human Resources</h4><p>Assigning employees to jobs, shifts, or training programs.</p></div>
-                    <div class="app-card"><h4>🤖 Robotics</h4><p>Assigning tasks to a swarm of robots in a warehouse.</p></div>
-                    <div class="app-card"><h4>🚚 Logistics</h4><p>Assigning delivery trucks to a set of routes or packages.</p></div>
-                    <div class="app-card"><h4>🎓 Education</h4><p>Assigning students to dorm rooms or projects.</p></div>
-                    <div class="app-card"><h4>🚕 Ride-Sharing</h4><p>Matching available drivers to nearby passengers.</p></div>
-                    <div class="app-card"><h4>🏥 Healthcare</h4><p>Pairing medical school graduates with available hospital residencies.</p></div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Conclusion</h2>
-                <p>The Assignment Problem is a testament to the power of optimization. It's a fundamental model that elegantly captures the essence of one-to-one resource allocation. Its close relationship with network flow theory not only provides a deep theoretical understanding but also equips us with the tools to solve a wide array of practical challenges, ensuring that in a world of limited resources, we can always find the most efficient and perfect match.</p>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Introduction -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 card-glow">
+            <div class="p-8 md:p-10">
+                <h2 class="text-3xl font-bold font-playfair text-gray-800 mb-6 text-center">
+                    The Quest for Optimal Pairing
+                </h2>
+                <div class="section-divider"></div>
+                <div class="prose prose-lg max-w-none text-gray-600">
+                    <p class="mb-6">
+                        In a world driven by efficiency, matching the right resources to the right tasks is a universal challenge. How do you assign employees to projects to maximize productivity? Or pair delivery drivers to routes to minimize fuel costs? These scenarios are all instances of a classic optimization puzzle: the <span class="highlight">Assignment Problem</span>.
+                    </p>
+                    <p>
+                        The problem is beautifully simple in its goal: given two equally sized groups of items, we want to create one-to-one pairings between them in a way that minimizes the total cost of all pairings. It's about finding the "perfect match" not just for one pair, but for the entire system simultaneously.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anatomy Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 card-glow">
+            <div class="p-8 md:p-10">
+                <h2 class="text-3xl font-bold font-playfair text-gray-800 mb-6 text-center">
+                    Anatomy of the Assignment Problem
+                </h2>
+                <div class="section-divider"></div>
+                <div class="prose prose-lg max-w-none text-gray-600 mb-8">
+                    <p class="mb-6">
+                        At its core, the assignment problem involves three key components:
+                    </p>
+                </div>
+
+                <!-- Bipartite Graph Visualization -->
+                <div class="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-200">
+                    <h3 class="text-xl font-semibold text-center mb-6 text-indigo-700">
+                        Bipartite Matching with Costs
+                    </h3>
+                    <div class="flex flex-col md:flex-row justify-around items-center relative h-64">
+                        <!-- Left Node Set -->
+                        <div class="flex flex-col space-y-6 z-10 mb-8 md:mb-0">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-lg node-animation">
+                                A
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-lg node-animation">
+                                B
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 flex items-center justify-center text-white font-bold text-xl shadow-lg node-animation">
+                                C
+                            </div>
+                        </div>
+                        
+                        <!-- SVG Lines (simplified for mobile) -->
+                        <svg class="hidden md:block absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="25%" y1="20%" x2="75%" y2="20%" stroke="#9f7aea" stroke-width="2" stroke-dasharray="5,5" />
+                            <line x1="25%" y1="20%" x2="75%" y2="50%" stroke="#9f7aea" stroke-width="2" stroke-dasharray="5,5" />
+                            <line x1="25%" y1="50%" x2="75%" y2="20%" stroke="#9f7aea" stroke-width="2" stroke-dasharray="5,5" />
+                            <line x1="25%" y1="50%" x2="75%" y2="80%" stroke="#9f7aea" stroke-width="2" stroke-dasharray="5,5" />
+                            <line x1="25%" y1="80%" x2="75%" y2="50%" stroke="#9f7aea" stroke-width="2" stroke-dasharray="5,5" />
+                            <line x1="25%" y1="80%" x2="75%" y2="80%" stroke="#9f7aea" stroke-width="2" stroke-dasharray="5,5" />
+                        </svg>
+                        
+                        <!-- Right Node Set -->
+                        <div class="flex flex-col space-y-6 z-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-rose-500 flex items-center justify-center text-white font-bold text-xl shadow-lg node-animation">
+                                X
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-rose-500 flex items-center justify-center text-white font-bold text-xl shadow-lg node-animation">
+                                Y
+                            </div>
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-pink-400 to-rose-500 flex items-center justify-center text-white font-bold text-xl shadow-lg node-animation">
+                                Z
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-500 mt-4">
+                        Matching each item from Set 1 (e.g., Workers) to exactly one item in Set 2 (e.g., Jobs).
+                    </p>
+                </div>
+
+                <!-- Key Components -->
+                <div class="grid md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-100">
+                        <div class="text-indigo-600 mb-3">
+                            <i class="fas fa-layer-group text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2 text-indigo-800">Two Equal Sets (N₁ and N₂)</h3>
+                        <p class="text-gray-600">These are the groups of items to be matched. For example, a set of swimmers and a set of swimming events.</p>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-lg border border-purple-100">
+                        <div class="text-purple-600 mb-3">
+                            <i class="fas fa-link text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2 text-purple-800">Possible Assignments (A)</h3>
+                        <p class="text-gray-600">A collection of all valid pairs between the two sets. For instance, not every swimmer can compete in every event.</p>
+                    </div>
+                    
+                    <div class="bg-pink-50 p-6 rounded-lg border border-pink-100">
+                        <div class="text-pink-600 mb-3">
+                            <i class="fas fa-tag text-3xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2 text-pink-800">Assignment Costs (cᵢⱼ)</h3>
+                        <p class="text-gray-600">A cost associated with each possible assignment. This could be the time it takes a machine to complete a job.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connection to Flow Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 card-glow">
+            <div class="p-8 md:p-10">
+                <h2 class="text-3xl font-bold font-playfair text-gray-800 mb-6 text-center">
+                    Connection to Minimum Cost Flow
+                </h2>
+                <div class="section-divider"></div>
+                <div class="prose prose-lg max-w-none text-gray-600 mb-8">
+                    <p class="mb-6">
+                        One of the most elegant aspects of the assignment problem is that it's a special, highly structured case of the <span class="highlight">Minimum Cost Flow</span> problem. This connection allows us to use powerful network flow algorithms to find the solution.
+                    </p>
+                </div>
+
+                <!-- Steps -->
+                <div class="space-y-6">
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-100 rounded-lg p-3 mr-4">
+                                <i class="fas fa-project-diagram text-indigo-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-indigo-800">1. Define the Network</h3>
+                                <p class="text-gray-600">Construct a network G = (N₁ ∪ N₂, A) where N₁ are source nodes and N₂ are destination nodes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-lg p-3 mr-4">
+                                <i class="fas fa-balance-scale text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-purple-800">2. Set Supplies and Demands</h3>
+                                <p class="text-gray-600">• For each source node i ∈ N₁, set supply b(i) = 1.<br>• For each destination node j ∈ N₂, set demand b(j) = -1.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-pink-100 rounded-lg p-3 mr-4">
+                                <i class="fas fa-tachometer-alt text-pink-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-lg mb-2 text-pink-800">3. Set Arc Capacities</h3>
+                                <p class="text-gray-600">• For every possible assignment arc (i, j) ∈ A, set capacity uᵢⱼ = 1.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prose prose-lg max-w-none text-gray-600 mt-8">
+                    <p>
+                        This setup perfectly models the problem. Each source node (e.g., a worker) has exactly one unit of "supply" to give. Each destination node (e.g., a job) has a "demand" for exactly one unit. The capacity of 1 on each arc ensures that a worker can only be assigned to one job. Solving for the minimum cost flow in this network yields the minimum cost assignment.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 card-glow">
+            <div class="p-8 md:p-10">
+                <h2 class="text-3xl font-bold font-playfair text-gray-800 mb-6 text-center">
+                    Real-World Example: Assigning Consultants to Projects
+                </h2>
+                <div class="section-divider"></div>
+                
+                <div class="bg-gradient-to-r from-teal-100 to-blue-100 rounded-xl p-6 md:p-8 mb-8 border border-teal-200">
+                    <h3 class="text-xl font-semibold mb-4 text-teal-800">
+                        <i class="fas fa-briefcase mr-2"></i> Scenario: Optimizing a Consulting Team
+                    </h3>
+                    <p class="text-gray-700 mb-6">
+                        A manager has three consultants (Ana, Ben, Chloe) and three projects (Phoenix, Quest, Titan). The table below shows the estimated cost (in hours) for each consultant to complete each project based on their skills.
+                    </p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full border border-teal-800">
+                            <thead>
+                                <tr class="bg-teal-700 text-white">
+                                    <th class="py-3 px-4 text-left"></th>
+                                    <th class="py-3 px-4 text-center">Project Phoenix</th>
+                                    <th class="py-3 px-4 text-center">Project Quest</th>
+                                    <th class="py-3 px-4 text-center">Project Titan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-teal-200">
+                                    <th class="py-3 px-4 text-left bg-teal-50">Ana</th>
+                                    <td class="py-3 px-4 text-center">10</td>
+                                    <td class="py-3 px-4 text-center">15</td>
+                                    <td class="py-3 px-4 text-center">9</td>
+                                </tr>
+                                <tr class="border-b border-teal-200">
+                                    <th class="py-3 px-4 text-left bg-teal-50">Ben</th>
+                                    <td class="py-3 px-4 text-center">9</td>
+                                    <td class="py-3 px-4 text-center">18</td>
+                                    <td class="py-3 px-4 text-center">5</td>
+                                </tr>
+                                <tr>
+                                    <th class="py-3 px-4 text-left bg-teal-50">Chloe</th>
+                                    <td class="py-3 px-4 text-center">6</td>
+                                    <td class="py-3 px-4 text-center">14</td>
+                                    <td class="py-3 px-4 text-center">3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-6 bg-white p-4 rounded-lg border border-teal-300">
+                        <p class="font-semibold text-teal-700 mb-2">
+                            <i class="fas fa-bullseye mr-2"></i> The Goal:
+                        </p>
+                        <p class="text-gray-700">
+                            Assign each consultant to exactly one project to minimize the total hours worked.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl p-6 md:p-8 border border-blue-200">
+                    <h3 class="text-xl font-semibold mb-4 text-blue-800">
+                        <i class="fas fa-check-circle mr-2"></i> Optimal Solution
+                    </h3>
+                    <p class="text-gray-700 mb-6">
+                        After solving the assignment problem (e.g., using the Hungarian algorithm), we find the perfect match:
+                    </p>
+                    
+                    <div class="overflow-x-auto mb-6">
+                        <table class="min-w-full border border-blue-800">
+                            <thead>
+                                <tr class="bg-blue-700 text-white">
+                                    <th class="py-3 px-4 text-left"></th>
+                                    <th class="py-3 px-4 text-center">Project Phoenix</th>
+                                    <th class="py-3 px-4 text-center">Project Quest</th>
+                                    <th class="py-3 px-4 text-center">Project Titan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-blue-200">
+                                    <th class="py-3 px-4 text-left bg-blue-50">Ana</th>
+                                    <td class="py-3 px-4 text-center bg-blue-100 font-bold">10</td>
+                                    <td class="py-3 px-4 text-center">15</td>
+                                    <td class="py-3 px-4 text-center">9</td>
+                                </tr>
+                                <tr class="border-b border-blue-200">
+                                    <th class="py-3 px-4 text-left bg-blue-50">Ben</th>
+                                    <td class="py-3 px-4 text-center">9</td>
+                                    <td class="py-3 px-4 text-center">18</td>
+                                    <td class="py-3 px-4 text-center bg-blue-100 font-bold">5</td>
+                                </tr>
+                                <tr>
+                                    <th class="py-3 px-4 text-left bg-blue-50">Chloe</th>
+                                    <td class="py-3 px-4 text-center">6</td>
+                                    <td class="py-3 px-4 text-center bg-blue-100 font-bold">14</td>
+                                    <td class="py-3 px-4 text-center">3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <p class="font-semibold text-blue-700 mb-2">
+                        The optimal assignment is:
+                    </p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </span>
+                            <strong>Ana → Project Phoenix (10 hours)</strong>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </span>
+                            <strong>Ben → Project Titan (5 hours)</strong>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2">
+                                <i class="fas fa-check text-xs"></i>
+                            </span>
+                            <strong>Chloe → Project Quest (14 hours)</strong>
+                        </li>
+                    </ul>
+                    
+                    <div class="bg-white p-4 rounded-lg border border-blue-300">
+                        <p class="font-bold text-blue-800">
+                            <i class="fas fa-calculator mr-2"></i> Total Minimum Cost: 
+                            <span class="text-2xl ml-2">10 + 5 + 14 = <span class="text-blue-600">29 hours</span></span>
+                        </p>
+                        <p class="text-gray-700 mt-1">
+                            Any other combination would result in a higher total cost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Algorithm Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 card-glow">
+            <div class="p-8 md:p-10">
+                <h2 class="text-3xl font-bold font-playfair text-gray-800 mb-6 text-center">
+                    Solving the Puzzle: The Hungarian Algorithm
+                </h2>
+                <div class="section-divider"></div>
+                
+                <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-8 border border-purple-200">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center">
+                            <div class="bg-white rounded-full p-6 shadow-lg">
+                                <i class="fas fa-chess-knight text-purple-600 text-5xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 md:pl-8">
+                            <h3 class="text-2xl font-bold text-purple-800 mb-4">
+                                The Hungarian Algorithm
+                            </h3>
+                            <p class="text-gray-700 mb-4">
+                                While the assignment problem can be solved as a minimum cost flow problem, its unique structure allows for a much more efficient, specialized algorithm known as the <strong class="text-purple-700">Hungarian Method</strong>.
+                            </p>
+                            <p class="text-gray-700">
+                                Developed by Harold Kuhn in 1955, this algorithm works by manipulating the cost matrix through a series of row and column reductions to find an assignment with zero cost in the modified matrix, which corresponds to the optimal assignment in the original matrix. It is significantly faster for this specific problem than general-purpose linear programming solvers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12 card-glow">
+            <div class="p-8 md:p-10">
+                <h2 class="text-3xl font-bold font-playfair text-gray-800 mb-6 text-center">
+                    Widespread Applications
+                </h2>
+                <div class="section-divider"></div>
+                <p class="text-center text-gray-600 mb-8 text-lg">
+                    The assignment problem appears in countless real-world scenarios:
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- HR Card -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 transition-all duration-300 hover:shadow-xl bounce-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-users text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-blue-800">Human Resources</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Assigning employees to jobs, shifts, or training programs based on skills and availability.
+                        </p>
+                    </div>
+                    
+                    <!-- Robotics Card -->
+                    <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-6 border border-green-200 transition-all duration-300 hover:shadow-xl bounce-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-robot text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-green-800">Robotics</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Assigning tasks to a swarm of robots in a warehouse for optimal path planning.
+                        </p>
+                    </div>
+                    
+                    <!-- Logistics Card -->
+                    <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 border border-yellow-200 transition-all duration-300 hover:shadow-xl bounce-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-truck text-yellow-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-yellow-800">Logistics</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Assigning delivery trucks to a set of routes or packages to minimize fuel costs.
+                        </p>
+                    </div>
+                    
+                    <!-- Education Card -->
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200 transition-all duration-300 hover:shadow-xl bounce-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-graduation-cap text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-purple-800">Education</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Assigning students to dorm rooms or projects based on preferences and constraints.
+                        </p>
+                    </div>
+                    
+                    <!-- Ride-Sharing Card -->
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 rounded-xl p-6 border border-red-200 transition-all duration-300 hover:shadow-xl bounce-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-taxi text-red-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-red-800">Ride-Sharing</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Matching available drivers to nearby passengers to minimize wait times.
+                        </p>
+                    </div>
+                    
+                    <!-- Healthcare Card -->
+                    <div class="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl p-6 border border-teal-200 transition-all duration-300 hover:shadow-xl bounce-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-teal-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-hospital text-teal-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-teal-800">Healthcare</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Pairing medical school graduates with available hospital residencies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion Section -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden card-glow">
+            <div class="p-8 md:p-10">
+                <h2 class="text-3xl font-bold font-playfair text-gray-800 mb-6 text-center">
+                    Conclusion
+                </h2>
+                <div class="section-divider"></div>
+                <div class="prose prose-lg max-w-none text-gray-600">
+                    <p class="mb-6">
+                        The Assignment Problem is a testament to the power of optimization. It's a fundamental model that elegantly captures the essence of one-to-one resource allocation. Its close relationship with network flow theory not only provides a deep theoretical understanding but also equips us with the tools to solve a wide array of practical challenges.
+                    </p>
+                    <p>
+                        In a world of limited resources, the assignment problem ensures we can always find the most efficient and perfect match, whether we're optimizing business operations, transportation networks, or any system where optimal pairing is essential.
+                    </p>
+                </div>
+                
+                <div class="mt-10 text-center">
+                    <div class="inline-flex items-center space-x-2 bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full">
+                        <i class="fas fa-lightbulb"></i>
+                        <span class="font-medium">Optimization in Action</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4 font-playfair">The Assignment Problem</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto">
+                    A fundamental optimization model for perfect matching in resource allocation.
+                </p>
+                <div class="flex justify-center space-x-6 mt-6">
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+                <div class="mt-8 text-gray-400 text-sm">
+                    <p>© 2023 Optimization Insights. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
