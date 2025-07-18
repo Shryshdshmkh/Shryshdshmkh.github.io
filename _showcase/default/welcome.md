@@ -19,6 +19,7 @@ date: 2024-01-12 00:01:00 +0800
         <li><a href="Shortest_path.html"> Shortest Path Problem</a></li>
         <li><a href="maximum_flow.html"> Maximum Flow Problem</a></li>
         <li><a href="Assignment_problem.html"> Assignment Problem</a></li>
+        <li><a href="circulation.html"> Circulation Problem</a></li>
         
         
          
