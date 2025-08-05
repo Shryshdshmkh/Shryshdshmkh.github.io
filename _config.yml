@@ -1,13 +1,28 @@
-baseurl: "" # the subpath of your site, e.g. /blog
+# ------------------------------------
+# Site settings for Chirpy theme
+# ------------------------------------
 
-# Build settings
+# Theme
+theme: jekyll-theme-chirpy
+remote_theme: "cotes2020/jekyll-theme-chirpy@4.3.1"
+
+# Jekyll
 markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
 plugins:
   - jekyll-email-protect
-theme: minima
-minima:
-  skin: dark
+  - jekyll-feed
+  - jekyll-sitemap
 
+# Chirpy-specific settings
+timezone: Asia/Kolkata # Example for India, adjust as needed
+date_format: "%b %-d, %Y"
+tag_page_layout: tagpage
+category_page_layout: categorypage
+
+# Collections
 collections:
   publications:
     output: true
