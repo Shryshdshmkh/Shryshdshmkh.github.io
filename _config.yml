@@ -1,34 +1,28 @@
 # ------------------------------------
-# Site settings for Chirpy theme
+# Site settings for Academicpages theme
 # ------------------------------------
 
-# Theme
-theme: jekyll-theme-chirpy
-remote_theme: cotes2020/jekyll-theme-chirpy
 # Jekyll
+permalink: /:collection/:path/
 markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
-plugins:
-  - jekyll-email-protect
-  - jekyll-feed
-  - jekyll-sitemap
 
-# Chirpy-specific settings
-timezone: Asia/Kolkata # Example for India, adjust as needed
-date_format: "%b %-d, %Y"
-tag_page_layout: tagpage
-category_page_layout: categorypage
+# Minima theme doesn't apply to this theme
+theme: "jekyll-academicpages"
 
 # Collections
 collections:
   publications:
     output: true
-  Resume:
+    permalink: /:collection/:path/
+  talks:
     output: true
-  showcase:
+    permalink: /:collection/:path/
+  teaching:
     output: true
+    permalink: /:collection/:path/
   projects:
     output: true
     permalink: /:collection/:path/
