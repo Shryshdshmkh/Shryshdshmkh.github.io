@@ -1,139 +1,246 @@
----
-layout: default
-title: Homepage
-navbar_title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <style>
+        @media (max-width: 1200px) {
+            .sidebar-container {
+                display: none;
+            }
+            .main-content {
+                width: 100% !important;
+                margin-right: 0 !important;
+            }
+        }
+        
+        .sidebar-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .sidebar-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+        
+        .sidebar-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-semibold text-gray-900">Home</span>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Research</a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Publications</a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">CV</a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-{% include widgets/profile_card.html %}
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex">
+        <div class="main-content w-3/4 pr-8">
+            <!-- Profile Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg mb-8">
+                <div class="px-4 py-5 sm:p-6 flex items-center">
+                    <div class="mr-6">
+                        <img class="h-32 w-32 rounded-full object-cover border-4 border-indigo-100" src="/assets/images/photos/profile.png" alt="Profile photo">
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Dr. Researcher Name</h2>
+                        <p class="text-indigo-600">Professor of Economics</p>
+                        <p class="text-gray-600 mt-2">University of Research Excellence</p>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-indigo-600">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-indigo-600">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-indigo-600">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-indigo-600">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-{% include widgets/debug_url.html %}
+            <!-- Experience Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg mb-8">
+                <div class="px-4 py-5 sm:p-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 border-b pb-2 mb-4">
+                        <i class="fas fa-briefcase mr-2 text-indigo-500"></i>Professional Experience
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-indigo-200 pl-4 py-1">
+                            <h4 class="font-semibold text-gray-800">Professor of Economics</h4>
+                            <p class="text-gray-600">University of Research Excellence</p>
+                            <p class="text-sm text-gray-500">2015 - Present</p>
+                        </div>
+                        <div class="border-l-4 border-indigo-200 pl-4 py-1">
+                            <h4 class="font-semibold text-gray-800">Associate Professor</h4>
+                            <p class="text-gray-600">Institute of Economic Studies</p>
+                            <p class="text-sm text-gray-500">2010 - 2015</p>
+                        </div>
+                        <div class="border-l-4 border-indigo-200 pl-4 py-1">
+                            <h4 class="font-semibold text-gray-800">Research Fellow</h4>
+                            <p class="text-gray-600">Center for Economic Policy</p>
+                            <p class="text-sm text-gray-500">2007 - 2010</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-{% if site.data.display.homepage.show_experience %}
-  {% include widgets/experience_card.html %}
-{% endif %}
+            <!-- News Card -->
+            <div class="bg-white overflow-hidden shadow rounded-lg mb-8">
+                <div class="px-4 py-5 sm:p-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 border-b pb-2 mb-4">
+                        <i class="fas fa-newspaper mr-2 text-indigo-500"></i>Recent News
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800">New research paper published in Journal of Economic Studies</h4>
+                            <p class="text-gray-600">June 15, 2025</p>
+                            <p class="text-gray-700 mt-1">Our latest paper on income inequality trends in developing economies has been published.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Keynote speaker at International Economics Conference</h4>
+                            <p class="text-gray-600">May 3, 2025</p>
+                            <p class="text-gray-700 mt-1">Delivered keynote on "Emerging Patterns in Global Inequality" at IEC 2025.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-{% if site.data.display.homepage.show_news %}
-  {% assign count_news = site.news | size %}
-  {% if count_news > 0 %}
-    {% include widgets/news_card.html limit=site.data.display.homepage.num_news %}
-  {% endif %}
-{% endif %}
+            <!-- Selected Publications -->
+            <div class="bg-white overflow-hidden shadow rounded-lg mb-8">
+                <div class="px-4 py-5 sm:p-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900 border-b pb-2 mb-4">
+                        <i class="fas fa-star mr-2 text-indigo-500"></i>Selected Publications
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-indigo-200 pl-4 py-1">
+                            <h4 class="font-semibold text-gray-800">"Trends in Income Inequality: A Global Perspective"</h4>
+                            <p class="text-gray-600">Journal of Economic Perspectives, 2025</p>
+                            <p class="text-sm text-gray-700 mt-1">This paper examines the latest trends in income inequality across 50 countries from 2000-2025.</p>
+                        </div>
+                        <div class="border-l-4 border-indigo-200 pl-4 py-1">
+                            <h4 class="font-semibold text-gray-800">"The Impact of Education Policies on Economic Mobility"</h4>
+                            <p class="text-gray-600">American Economic Review, 2023</p>
+                            <p class="text-sm text-gray-700 mt-1">Analysis of how different education policies affect intergenerational economic mobility.</p>
+                        </div>
+                        <div class="border-l-4 border-indigo-200 pl-4 py-1">
+                            <h4 class="font-semibold text-gray-800">"Measuring Wealth Inequality in Developing Economies"</h4>
+                            <p class="text-gray-600">World Development, 2021</p>
+                            <p class="text-sm text-gray-700 mt-1">New methodological approaches to measuring wealth inequality in contexts with limited data.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-{% if site.data.display.homepage.show_selected_publications %}
-  {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}
-  {% include widgets/publication_card.html
-    publications=pubs
-    title='<i class="fas fa-star"></i> Selected Publications'
-  %}
-{% endif %}
+            <!-- Paper Snippet -->
+            <div class="bg-white overflow-hidden shadow rounded-lg mb-8">
+                <div class="px-4 py-5 sm:p-6">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">
+                        Gini Coefficient of Consumption Expenditure Across Social Groups in Indian States, HCES 2023–24
+                    </h2>
+                    <p class="text-gray-700 mb-4">
+                        This figure presents the inequality in monthly per capita consumption expenditure (MPCE) across major social groups—Scheduled Castes (SC), Scheduled Tribes (ST), Other Backward Classes (OBC), and Others—using data from the Household Consumption and Expenditure Survey (HCES) 2023–24. The Gini coefficient, ranging from 0 (perfect equality) to 1 (perfect inequality), is computed separately for each group within every Indian state. Higher values indicate greater intra-group inequality.
+                    </p>
+                    <img src="/assets/images/photos/profile.png" alt="Gini Coefficient Visualization" class="w-full h-auto border border-gray-200 p-2 rounded">
+                    <div class="mt-4 text-sm text-gray-500">
+                        <p>Source: Household Consumption and Expenditure Survey (HCES) 2023–24</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<div class="paper-snippet">
-  <h2>A Snippet from my Research</h2>
-  <img src="/assets/images/photos/profile.png" alt="A cropped image showing a key finding or figure from a research paper." style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 5px;">
-</div>
+        <!-- Sidebar Container -->
+        <div class="sidebar-container w-1/4">
+            <!-- LinkedIn Feed -->
+            <div class="bg-white rounded-lg shadow mb-6 p-4">
+                <h2 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">LinkedIn</h2>
+                <div class="border border-gray-200 rounded p-2">
+                    <iframe 
+                        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7329154989518389248"
+                        height="400"
+                        width="100%"
+                        frameborder="0"
+                        allowfullscreen
+                        title="Embedded LinkedIn Post">
+                    </iframe>
+                </div>
+            </div>
 
-<div class="sidebar-container">
-  <div class="linkedin-feed">
-    <h2>LinkedIn</h2>
-    <iframe
-      src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7329154989518389248"
-      height="600"
-      width="100%"
-      frameborder="0"
-      allowfullscreen=""
-      title="Embedded LinkedIn Post">
-    </iframe>
-  </div>
-
-  <div class="twitter-feed">
-    <h2>Twitter</h2>
-    <div class="twitter-container">
-      <div class="tweet-item">
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Very insightful paper(<a href="https://t.co/WCbSibCwux">https://t.co/WCbSibCwux</a>) for comparison between XGBoost and Logistic Regression (LR) for binary classification tasks, particularly in imbalanced datasets like burned area detection from satellite imagery.<br><br>Some key Points Summarizing the comparison: <a href="https://t.co/tFfjq8Bv9h">pic.twitter.com/tFfjq8Bv9h</a></p>&mdash; Śreyāśḥ D 🚀 𝗲/𝗮𝗰𝗰 (@xegression) <a href="https://twitter.com/xegression/status/1946915420222685475?ref_src=twsrc%5Etfw">July 20, 2025</a></blockquote>
-      </div>
-      <div class="tweet-item">
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">In 1886, Francis Galton observed that children’s heights tended to be closer to the average than their parents’. <br><br>This “regression toward the mean” led to the term we now use in statistics: regression. <a href="https://t.co/ezkn6w9bDO">pic.twitter.com/ezkn6w9bDO</a></p>&mdash; Śreyāśḥ D 🚀 𝗲/𝗮𝗰𝗰 (@xegression) <a href="https://twitter.com/xegression/status/1952755478611546409?ref_src=twsrc%5Etfw">August 5, 2025</a></blockquote>
-      </div>
-      <div class="tweet-item">
-        <blockquote class="twitter-tweet"><p lang="en" dir="ltr">One of the most cited papers, which introduced random forest by Leo Breiman (though idea was there long ago).<br><br>He also has website for it and just got to know that Random Forest itself is not patented,but the name is trademarked. <a href="https://t.co/X0fXWL4uWJ">https://t.co/X0fXWL4uWJ</a><a href="https://t.co/AM5wpPSRMC">https://t.co/AM5wpPSRMC</a> <a href="https://t.co/NH5eQ5H4M9">pic.twitter.com/NH5eQ5H4M9</a></p>&mdash; Śreyāśḥ D 🚀 𝗲/𝗮𝗰𝗰 (@xegression) <a href="https://twitter.com/xegression/status/1945485007222714765?ref_src=twsrc%5Etfw">July 16, 2025</a></blockquote>
-      </div>
+            <!-- Twitter Feed -->
+            <div class="bg-white rounded-lg shadow p-4">
+                <h2 class="text-lg font-semibold text-gray-900 border-b pb-2 mb-4">Twitter</h2>
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded p-3">
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">Very insightful paper(<a href="https://t.co/WCbSibCwux">https://t.co/WCbSibCwux</a>) for comparison between XGBoost and Logistic Regression (LR) for binary classification tasks, particularly in imbalanced datasets like burned area detection from satellite imagery.<br><br>Some key Points Summarizing the comparison: <a href="https://t.co/tFfjq8Bv9h">pic.twitter.com/tFfjq8Bv9h</a></p>&mdash; Śreyāśḥ D  🚀 𝗲/𝗮𝗰𝗰 (@xegression) <a href="https://twitter.com/xegression/status/1946915420222685475?ref_src=twsrc%5Etfw">July 20, 2025</a>
+                        </blockquote>
+                    </div>
+                    <div class="border border-gray-200 rounded p-3">
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">In 1886, Francis Galton observed that children's heights tended to be closer to the average than their parents'. <br><br>This "regression toward the mean" led to the term we now use in statistics: regression. <a href="https://t.co/ezkn6w9bDO">pic.twitter.com/ezkn6w9bDO</a></p>&mdash; Śreyāśḥ D  𝗲/𝗮𝗰𝗰 (@xegression) <a href="https://twitter.com/xegression/status/1952755478611546409?ref_src=twsrc%5Etfw">August 5, 2025</a>
+                        </blockquote>
+                    </div>
+                    <div class="border border-gray-200 rounded p-3">
+                        <blockquote class="twitter-tweet">
+                            <p lang="en" dir="ltr">One of the most cited papers, which introduced random forest by Leo Breiman (though idea was there long ago).<br><br>He also has website for it and just got to know that Random Forest itself is not patented,but the name is trademarked. <a href="https://t.co/X0fXWL4uWJ">https://t.co/X0fXWL4uWJ</a><a href="https://t.co/AM5wpPSRMC">https://t.co/AM5wpPSRMC</a> <a href="https://t.co/NH5eQ5H4M9">pic.twitter.com/NH5eQ5H4M9</a></p>&mdash; Śreyāśḥ D  𝗲/𝗮𝗰𝗰 (@xegression) <a href="https://twitter.com/xegression/status/1945485007222714765?ref_src=twsrc%5Etfw">July 16, 2025</a>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<style>
-.sidebar-container {
-  position: fixed;
-  right: 20px;
-  top: 100px;
-  width: 350px;
-  z-index: 1000;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  border-left: 1px solid #ddd;
-  padding-left: 20px;
-}
-
-.linkedin-feed, .twitter-feed {
-  margin-bottom: 20px;
-}
-
-.linkedin-feed h2, .twitter-feed h2, .paper-snippet h2 {
-  font-size: 1.2em;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 5px;
-  margin-bottom: 10px;
-}
-
-.twitter-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.tweet-item {
-  margin-bottom: 10px;
-}
-
-/* Scrollbar styling */
-.sidebar-container::-webkit-scrollbar {
-  width: 6px;
-}
-
-.sidebar-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.sidebar-container::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 10px;
-}
-
-.sidebar-container::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
-}
-
-/* Hide on smaller screens */
-@media (max-width: 1200px) {
-  .sidebar-container {
-    display: none;
-  }
-}
-
-/* Adjust main content to accommodate sidebar */
-.container, .container-fluid {
-  max-width: calc(100% - 380px);
-  margin-left: 0;
-}
-
-@media (max-width: 1200px) {
-  .container, .container-fluid {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-</style>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p class="text-gray-500 text-sm">&copy; 2025 Researcher Name. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
