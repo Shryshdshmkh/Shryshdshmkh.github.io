@@ -4,8 +4,7 @@
 
 # Theme
 theme: jekyll-theme-chirpy
-remote_theme: "cotes2020/jekyll-theme-chirpy@4.3.1"
-
+remote_theme: cotes2020/jekyll-theme-chirpy
 # Jekyll
 markdown: kramdown
 highlighter: rouge
