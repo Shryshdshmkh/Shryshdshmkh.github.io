@@ -27,21 +27,26 @@ navbar_title: Home
   %}
 {% endif %}
 
-            <div class="bg-white overflow-hidden shadow rounded-lg mb-8">
-                <div class="px-4 py-5 sm:p-6">
-                    <h2 class="text-lg font-semibold text-gray-900 mb-4">
-                        Gini Coefficient of Consumption Expenditure Across Social Groups in Indian States, HCES 2023–24
-                    </h2>
-                    <p class="text-gray-700 mb-4">
-                        This figure presents the inequality in monthly per capita consumption expenditure (MPCE) across major social groups—Scheduled Castes (SC), Scheduled Tribes (ST), Other Backward Classes (OBC), and Others—using data from the Household Consumption and Expenditure Survey (HCES) 2023–24. The Gini coefficient, ranging from 0 (perfect equality) to 1 (perfect inequality), is computed separately for each group within every Indian state. Higher values indicate greater intra-group inequality.
-                    </p>
-                    <img src="/assets/images/Final.png" alt="Gini Coefficient Visualization" class="w-full h-auto border border-gray-200 p-2 rounded">
-                    <div class="mt-4 text-sm text-gray-500">
-                        <p>Source: Household Consumption and Expenditure Survey (HCES) 2023–24</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div class="paper-snippet">
+  <h2>Nighttime Lights as a Proxy for Regional Economic Activity in India</h2>
+  <img src="/assets/images/nightlight.png" alt="Nighttime Lights across India" class="w-full h-auto border border-gray-200 p-2 rounded">
+  <p class="caption">
+    This image was created using VIIRS Nightfire (VNF) data and illustrates the spatial distribution of nighttime lights (NTL) across India. NTL data are increasingly utilized as a proxy for measuring economic activity due to their advantages over traditional indicators such as GDP—including higher spatial resolution, more timely updates, lower acquisition cost, and consistent comparability across regions.
+  </p>
+</div>
+
+
+<div class="paper-snippet">
+  <h2>Gini Coefficient of Consumption Expenditure Across Social Groups in Indian States, HCES 2023–24</h2>
+  <img src="/assets/images/Final.png" alt="Gini Coefficient Visualization" class="w-full h-auto border border-gray-200 p-2 rounded">
+  <p class="caption">
+    This figure presents the inequality in monthly per capita consumption expenditure (MPCE) across major social groups—Scheduled Castes (SC), Scheduled Tribes (ST), Other Backward Classes (OBC), and Others—using data from the Household Consumption and Expenditure Survey (HCES) 2023–24. The Gini coefficient, ranging from 0 (perfect equality) to 1 (perfect inequality), is computed separately for each group within every Indian state. Higher values indicate greater intra-group inequality.
+  </p>
+</div>
+
+
+
 
 <div class="sidebar-container">
   <div class="linkedin-feed">
@@ -87,7 +92,7 @@ navbar_title: Home
   padding-left: 20px;
 }
 
-.linkedin-feed, .twitter-feed {
+.linkedin-feed, .twitter-feed, .paper-snippet {
   margin-bottom: 20px;
 }
 
@@ -106,6 +111,13 @@ navbar_title: Home
 
 .tweet-item {
   margin-bottom: 10px;
+}
+
+/* Style for the image caption */
+.paper-snippet .caption {
+  font-size: 0.9em;
+  color: #555;
+  text-align: left;
 }
 
 /* Scrollbar styling */
