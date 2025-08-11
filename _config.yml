@@ -9,8 +9,8 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 
-# Minima theme doesn't apply to this theme
-theme: "jekyll-academicpages"
+# The theme is hosted on a remote repository, so use remote_theme.
+remote_theme: "academicpages/academicpages.github.io@v4.0.0"
 
 # Collections
 collections:
