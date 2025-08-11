@@ -24,11 +24,15 @@ navbar_title: Home
       {% endif %}
 
       {% if site.data.display.homepage.show_selected_publications %}
-        {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}
-        {% include widgets/publication_card.html
-          publications=pubs
-          title='<i class="fas fa-star"></i> Selected Publications'
-        %}
+        {% if site.publications and site.publications.size > 0 %}
+          {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}
+          {% include widgets/publication_card.html
+            publications=pubs
+            title='<i class="fas fa-star"></i> Selected Publications'
+          %}
+        {% else %}
+          <p>No publications to display.</p>
+        {% endif %}
       {% endif %}
 
       <div class="mt-6">
@@ -65,4 +69,7 @@ navbar_title: Home
 </div>
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-This video may be helpful if you want to learn more about how to embed a Twitter timeline in your Jekyll project without a plugin. [How to embed a Twitter stream to a Jekyll project](https://www.youtube.com/watch?v=0hW255kM0iI).
+<!--
+This video may be helpful if you want to learn more about how to embed a Twitter timeline in your Jekyll project without a plugin. 
+[How to embed a Twitter stream to a Jekyll project](https://www.youtube.com/watch?v=0hW255kM0iI).
+-->
