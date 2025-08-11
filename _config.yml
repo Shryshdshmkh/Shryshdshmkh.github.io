@@ -3,14 +3,9 @@
 # ------------------------------------
 
 # Jekyll
-permalink: /:collection/:path/
 markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-
-# The theme is hosted on a remote repository, so use remote_theme.
-remote_theme: "academicpages/academicpages.github.io@v4.0.0"
+plugins:
+  - jekyll-email-protect
 
 # Collections
 collections:
