@@ -20,8 +20,11 @@ cv: /assets/pdf/Shreyash_CV.pdf
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    Hi! I am a doctoral student at <a href="https://www.iimk.ac.in/">Indian Institute of Management Kozhikode</a> specializing in Quantitative Methods & Operations Management. My research focuses on non-linear statistical regression and machine learning, particularly in the demographic and health domains. Additionally, I am working on spatio-temporal modeling related to air pollution.
-  </p>
+    Hi! I am a doctoral student at <a href="https://www.iimk.ac.in/">Indian Institute of Management Kozhikode</a> specializing in Quantitative Methods & Operations Management. My academic and research journey is driven by a strong interest in applying advanced analytical techniques: particularly statistical machine learning, spatial econometrics, and volatility/multivariate time series modeling-to solve complex real-world problems.
+
+My research spans a wide range of domains, including demography, public health, sustainability, and hospitality. I am particularly interested in how quantitative insights can inform policy and improve outcomes in sectors with high social impact. In addition to my core research, 
+
+I am developing an interactive data visualization portal focused on demographic and socio-economic indicators, with integrated GIS-based geocoding and mapping capabilities. This initiative involves working with granular data from the Indian Census, National Family Health Survey (NFHS), and other large-scale datasets.  </p>
   <p>
     I was a pre-doctoral fellow at IIM Bangalore in the field of decision science, under the mentorship of <a href="https://soudeepd.github.io/">Dr. Soudeep Deb</a>. During this time, I have extensively worked on methodologies for predicting disease outbreaks and evaluated them using experimental and simulation approaches. Currently, my research focuses on quantile autoregression and its efficiency in predicting extreme values in time series data.
   </p>
